@@ -209,6 +209,10 @@ def logout():
         # flash(f'Logged out of {cur}!', 'success')
     return redirect(url_for('index'))
 
+	
+####################
+#  API Endpoints   #
+####################
 
 # All Tasks
 @app.route('/todo/api/v1/tasks', methods=['GET'])
