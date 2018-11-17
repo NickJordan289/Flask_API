@@ -34,18 +34,18 @@
 			</div>
 			<div class="collapse navbar-collapse" id="myNavbar">
 			<ul class="nav navbar-nav">
-				<li {% if request.endpoint == 'index' %} class="active" {% endif %} ><a href="/">Home</a></li>
-				<li {% if request.endpoint == 'about' %} class="active" {% endif %} ><a href="/about">About</a></li>
-				<li {% if request.endpoint == 'docs' %} class="active" {% endif %} ><a href="/docs">Documentation</a></li>
-				<li {% if request.endpoint == 'profile' %} class="active" {% endif %} ><a href="/profile">Profile</a></li>
+				<li {% if request.endpoint == 'index' %} class="active" {% endif %} ><a href="{{url_for('index')}}">Home</a></li>
+				<li {% if request.endpoint == 'about' %} class="active" {% endif %} ><a href="{{url_for('about')}}">About</a></li>
+				<li {% if request.endpoint == 'docs' %} class="active" {% endif %} ><a href="{{url_for('docs')}}">Documentation</a></li>
+				<li {% if request.endpoint == 'profile' %} class="active" {% endif %} ><a href="{{url_for('profile')}}">Profile</a></li>
 			</ul>
 			<ul class="nav navbar-nav navbar-right">
 				{%if current_user.is_authenticated%}
-					<li><a href="/logout"><span class="glyphicon glyphicon-log-out"></span> Logout</a></li>
-					<li><a href="/profile"><span class="glyphicon glyphicon-user"></span> {{current_user.username}}</a></li>            
+					<li><a href="{{url_for('logout')}}"><span class="glyphicon glyphicon-log-out"></span> Logout</a></li>
+					<li><a href="{{url_for('profile')}}"><span class="glyphicon glyphicon-user"></span> {{current_user.username}}</a></li>            
 				{%else%}
-					<li><a href="/login"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
-					<li><a href="/register"><span class="glyphicon glyphicon-edit"></span> Register</a></li>
+					<li><a href="{{url_for('login')}}"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
+					<li><a href="{{url_for('register')}}"><span class="glyphicon glyphicon-edit"></span> Register</a></li>
 				{%endif%}
 			</ul>
 			</div>
